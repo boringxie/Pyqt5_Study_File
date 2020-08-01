@@ -8,7 +8,7 @@
 
 #### 2020/8/1
 
-###### images添加图片![](D:\python文件\Pyqt5_Study_File\images\!face.png)
+###### images添加图片:!face.png ![](D:\python文件\Pyqt5_Study_File\images\!face.png)
 
 ###### 添加程序: 
 
