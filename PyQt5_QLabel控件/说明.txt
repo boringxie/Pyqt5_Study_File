@@ -1,0 +1,12 @@
+QLabel控件
+
+setAlgnment():设置文本的对齐方式
+setIndent():设置文本缩进
+text():获取文本内容
+setBuddy():设置伙伴关系
+setText()：设置文本内容
+selectedText():返回所选择的字符
+setWordWrap():设置是否允许换行
+QLabel常用的信号(事件):
+1.当鼠标划过QLabel控件时触发：linkHovered
+2.当鼠标单击QLabel控件时触发：linkActivated

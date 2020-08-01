@@ -11,7 +11,7 @@ class TooltipForm(QMainWindow):
         self.setToolTip('控件提示信息完成')
         self.setGeometry(300,300,500,300)
         self.setWindowTitle('设置控件提示信息')
-        self.setWindowIcon(QIcon('./images/初音.ico'))
+        self.setWindowIcon(QIcon('./images/!face.png'))
 
         #添加button
         self.button1 = QPushButton('我的按钮')
