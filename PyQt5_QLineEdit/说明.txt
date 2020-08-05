@@ -1,0 +1,13 @@
+'''
+QLineEdit控件与回显
+
+基本功能：输入单行的文本
+
+EchoMode(回显模式)
+总共有4种
+1.Normal
+2.NoEcho
+3.Password
+4.PasswordEchoOnEdit
+'''
+
