@@ -18,20 +18,24 @@ class PyQt5_Shutdown_DEMO(QWidget):
         self.initUI()
 
     def initUI(self):
+        #创建两个按钮
         pushButton1 = QPushButton('确定')
         pushButton2 = QPushButton('取消定时关机')
         pushButton1.clicked.connect(self.buttonChanged)
         pushButton2.clicked.connect(self.buttonNO)
-
+        #创建目标时间标签
         nameLabel1 = QLabel('&目标时间:')
         timeLabel = QLabel(' : ')
         edit_time1 = QLineEdit()
         edit_time2 = QLineEdit()
+        #设置校验器
         intvalidator = QIntValidator(self)
         intvalidator.setRange(1,24)
+        #添加目标时间Edit
         edit_time1.setValidator(intvalidator)
         edit_time2.setValidator(intvalidator)
         nameLabel1.setBuddy(edit_time1)
+        #添加edit槽
         edit_time1.textChanged.connect(self.textChanged1)
         edit_time2.textChanged.connect(self.textChanged2)
 
@@ -47,9 +51,9 @@ class PyQt5_Shutdown_DEMO(QWidget):
         label.setToolTip('这是一个图片标签')
         #设置标签3为图片
         label.setPixmap(QPixmap("./images/!face.png"))
-
+        #创建栅格布局
         gridLayout = QGridLayout(self)
-
+        #将控件添加到gridLayout
         gridLayout.addWidget(label, 0,0,10,10)
         gridLayout.addWidget(nameLabel2, 0, 10, 1, 1)
         gridLayout.addWidget(timeEdit, 0, 11, 1, 1)
