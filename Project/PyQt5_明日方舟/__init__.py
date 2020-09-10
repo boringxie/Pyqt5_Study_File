@@ -1,7 +1,6 @@
 
 '''
-QLineEdit(校验器)
-如限制器只能输入整数、浮点数或者满足一定条件的字符串
+这是明日方舟自动化GUI脚本
 '''
 
 import sys,os,time
@@ -12,21 +11,21 @@ import threading
 from PyQt5.QtCore import QDate, QTime, QDateTime, Qt
 state=0
 run_time=0
-game_num=0
+game_num=1
 name="夏活副本"
 def TIME_IT():
     global run_time
     global name
     global game_num
     global state
-    print(f'次数：{game_num}'+f'   name；{name}' + f'   time:{run_time}')
+    print(f'次数：{game_num}'+f'   name；{name}' + f'   time:{run_time}'+f'战斗状态{state}')
     if state == 1:
         if game_num in range(1, 100):
             if name == "主线副本":
-                if run_time ==0:
+                if run_time ==2:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
-                if run_time == 2:
+                if run_time == 5:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 100:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
@@ -34,10 +33,10 @@ def TIME_IT():
                     run_time = 0
                     game_num=game_num - 1
             elif name == "剿灭副本":
-                if run_time == 0:
+                if run_time == 2:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
-                if run_time == 2:
+                if run_time == 5:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 902:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
@@ -45,17 +44,19 @@ def TIME_IT():
                     run_time = 0
                     game_num=game_num - 1
             elif name == "夏活副本":
-                if run_time == 0:
+                if run_time == 2:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
-                if run_time == 1:
+                if run_time == 4:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 130:
                     os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
                 if run_time == 134:
                     run_time = 0
                     game_num=game_num - 1
-        run_time = run_time + 1
+            run_time = run_time + 1
+        else:
+            state=0
     t = threading.Timer(1,TIME_IT)
     t.start()
 
@@ -125,21 +126,31 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "取消战斗"))
         self.radioButton.setText(_translate("MainWindow", "战斗中"))
         self.label_2.setText(_translate("MainWindow", "剩余次数:"))
-
+    def set_edit(self):
+        self.lineEdit_2.setText(f"{game_num}")
     def AK_OK(self):
         global state
         global game_num
-        if self.radioButton.isChecked() == False:
+        if state == 0:
             self.radioButton.setChecked(True)
             state=1
+            self.lineEdit.setText(f'{game_num}')
             self.lineEdit_2.setText(f'{game_num}')
+            run_time = 0
         else:
             print('None')
+            self.lineEdit.setText(f'{game_num}')
+            self.lineEdit_2.setText(f'{game_num}')
     def AK_Stop(self):
-        self.radioButton.setChecked(False)
-        self.lineEdit_2.setText("0")
+        global state
+        global game_num
+        global run_time
         game_num=0
         state=0
+        run_time=0
+        self.radioButton.setChecked(False)
+        self.lineEdit.setText(f'{game_num}')
+        self.lineEdit_2.setText(f'{game_num}')
         print('stop')
     def AK_edit(self,text):
         print('输入的内容:' + text)
