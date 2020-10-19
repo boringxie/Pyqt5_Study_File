@@ -23,34 +23,34 @@ def TIME_IT():
         if game_num in range(1, 100):
             if name == "主线副本":
                 if run_time ==2:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
                 if run_time == 5:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 100:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
                 if run_time == 104:
                     run_time = 0
                     game_num=game_num - 1
             elif name == "剿灭副本":
                 if run_time == 2:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
                 if run_time == 5:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 902:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
                 if run_time == 907:
                     run_time = 0
                     game_num=game_num - 1
             elif name == "夏活副本":
                 if run_time == 2:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe connect 127.0.0.1:7555')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1425 826')
                 if run_time == 4:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 1375 785')
                 if run_time == 130:
-                    os.system(r'G:\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
+                    os.system(r'C:\Program Files\MuMu\emulator\nemu\vmonitor\bin\adb_server.exe shell input tap 725 262')
                 if run_time == 134:
                     run_time = 0
                     game_num=game_num - 1
@@ -60,8 +60,6 @@ def TIME_IT():
     t = threading.Timer(1,TIME_IT)
     t.start()
 
-t = threading.Timer(1, TIME_IT)
-t.start()
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -164,6 +162,8 @@ class Ui_MainWindow(object):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     mianWindow = QMainWindow()
+    t = threading.Timer(1, TIME_IT)
+    t.start()
     #初始化类
     ui = Ui_MainWindow()
     # 每过3秒切换一次账号
